@@ -1,7 +1,10 @@
+plugins {
+    id("com.jfrog.artifactory") version "5.+"
+    id "nebula.ospackage" version "9.1.1"
+}
+
 apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'com.jfrog.artifactory'
-apply plugin: "nebula.ospackage"
+apply plugin: 'maven-publish'
 apply plugin: 'idea'
 
 sourceCompatibility = 1.8
@@ -11,9 +14,9 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'commons-io', name: 'commons-io', version: '2.6'
-    testCompile 'com.opencsv:opencsv:3.9'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'commons-io', name: 'commons-io', version: '2.6'
+    testImplementation 'com.opencsv:opencsv:3.9'
 }
 
 buildDir = "build/java"
@@ -39,7 +42,7 @@ sourceSets {
 }
 
 task generateNativeHeaders(type:Exec) {
-    def classpath = sourceSets.main.output.classesDir
+    def classpath = sourceSets.main.output.classesDirs
     def nativeIncludes = "src/FactExtract/Parser/textminerlib_java/generated"
     commandLine "javah", "-d", nativeIncludes, "-classpath", classpath, "com.srg.tomita.TomitaParserInternal"
 
