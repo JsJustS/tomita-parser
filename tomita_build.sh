@@ -13,3 +13,5 @@ mv -f libmystem_c_binding.so /tomita/libmystem_c_binding.so
 chmod +x /tomita/libmystem_c_binding.so
 rm -f libmystem_c_binding.so.linux_x64.zip
 ln -s /tomita/parser /usr/bin/tomita-parser
+mv /tomita/build/FactExtract/Parser/textminerlib_java/libFactExtract-Parser-textminerlib_java.so /usr/lib
+mv /tomita/build/libmystem_c_binding.so /usr/lib
