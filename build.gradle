@@ -1,6 +1,6 @@
 plugins {
     id("com.jfrog.artifactory") version "5.+"
-    id "nebula.ospackage" version "9.1.1"
+    id "com.netflix.nebula.ospackage" version "11.11.1"
 }
 
 apply plugin: 'java'
